@@ -7,4 +7,5 @@ $(function () {
 	selectOSForDownload()
 	fixupSidenotes()
 	prepareUpNextButton()
+	setupSidebarToc()
 })

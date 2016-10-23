@@ -193,7 +193,6 @@ a {
     margin-top: 0;
 }
 
-
 #side-nav ul li:last-child {
     margin-bottom: 10px
 }
@@ -262,6 +261,37 @@ a {
 #sidebar.bordered .nav-border {
     opacity: 1;
 }
+
+/* dynamic ToC in sidebar */
+
+#side-nav #nav-toc {
+    margin: 0 0 0px 0;
+    background-color:#f9f9f9;
+    padding:0px;
+    overflow:hidden;
+    height:auto;
+}
+#side-nav #nav-toc > ul,
+#side-nav #nav-toc > li {
+    padding:10px;
+}
+#side-nav #nav-toc ul {
+    padding-left:1em;
+}
+#side-nav #nav-toc li {
+    margin: 0;
+}
+#side-nav #nav-toc li a {
+    min-height:0px;
+    padding:2px;
+    font-size:14px;
+}
+
+
+
+
+
+
 
 /* Body layout */
 #doc-wrapper {

@@ -166,6 +166,49 @@ function fixupSidenotes() {
 	})
 }
 
+function setupSidebarToc() {
+	var nav = $("#docs-nav")
+	var navtoc = $("#nav-toc")
+	var doctoc = $("h1 + ul")
+	if (!doctoc[0]) doctoc = $("h1 + li")
+
+	navtoc.hide()
+	var doctocoffset = 100
+	var doctocheight = doctoc.outerHeight()
+	var navtocmaxheight = navtoc.height()
+	
+	var doc = $("#doc-wrapper")
+	doc.scroll(function() {
+
+		// Figure how much of ToC we have scrolled.
+		var scrollFraction = (doc.scrollTop() - doctocoffset) / doctocheight
+		if (scrollFraction < 0) scrollFraction = 0
+		if (scrollFraction > 1) scrollFraction = 1
+		
+		// Then, apply that to the sidebar
+		var navtocheight = Math.round(navtocmaxheight * scrollFraction)
+		if (navtocheight < 1) {
+			navtoc.hide()
+		} else {
+			navtoc.show()
+			navtoc.css("height", navtocheight)
+		}
+		
+		// 
+		
+		//console.log(scrollFraction)
+		
+//		console.log(doctoc.offset().top)
+//		var perc = doc.scrollTop() - doctoc.offset().top
+//		console.log(doc.scrollTop())
+	});
+}
+
+
+
+
+
+
 
 //function adjustWidths() {
 //	setTimeout(function(){
